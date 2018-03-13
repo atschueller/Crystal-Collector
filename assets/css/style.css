@@ -1,4 +1,21 @@
+body {
+    background-color: oldlace;
+    text-align: center
+}
 h1 { 
-    text-align: center;
+    text-shadow: 2px 2px black;
     font-family: fantasy;
+    font-weight: bold;
+    font-size: 60px;
+    color: purple;
+}
+#instructions {
+    font-family: cursive;
+    font-size: 15px; 
+}
+#wandL,
+#total {
+    font-size: 25px;
+    font-family: cursive;
+    font-weight: bold;
 }
