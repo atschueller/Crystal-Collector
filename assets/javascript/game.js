@@ -12,13 +12,13 @@ console.log(chosenNum);
 //Document Ready function
 $(document).ready(function () {
     console.log('ready!');
-
-    // Random number chosen at beginning and displayed in randomNumber div//
-    function getNumber() {
+    // Random number chosen at beginning and clears yourScore area//
+    function resetGame() {
         var gameNum = chosenNum;
         $('#randomNumber').text(gameNum.toString());
+        yourScore = 0;
     };
-    getNumber();
+    resetGame();
     //When a crystal is clicked the value of that crystal is added to yourScore div//
     $('#gemImg1').on('click', function () {
         yourScore += c1;
@@ -40,24 +40,20 @@ $(document).ready(function () {
         $('#yourScore').text(yourScore);
         console.log(yourScore);
     });
-    //If yourScore is equal to the randomNumber then you have a Win added//
-    if (youScore = chosenNum) {
-        wins++;
-        $('yourWins').text(wins.toString());
-        activeGame = false;
-        reset(game);
+    function checkValues() {
+        if (yourScore === chosenNum) {
+            wins++;
+            $('#yourWins').text("Wins:" + wins.toString());
+            activeGame = true;
+            resetGame();
+        };
+        if (yourScore >= chosenNum) {
+            losses++;
+            alert('You Lose');
+            $('#yourLosses').text("Losses:" + losses.toString());
+            activeGame = true;
+            resetGame();
+        };
     }
-    //If yourScore goes above the randomNumber then you have a Loss added//
-    else {
-        losses++;
-        alert('You Lose');
-        $('yourLosses').text(losses.toString());
-        activeGame = false;
-        reset(game);
-    }
-    //resetGame function to clear the randomNumber and crystal values//
-    function reset() {
-        yourScore = 0,
-        $('#yourScore').text(toString);
-    }
-})
+    $("button").click(checkValues);
+});
